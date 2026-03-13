@@ -1,6 +1,6 @@
 # lex-todoist
 
-Todoist task management integration for [LegionIO](https://github.com/LegionIO/LegionIO). Manage projects, tasks, sections, labels, and comments via the Todoist API.
+Todoist task management integration for [LegionIO](https://github.com/LegionIO/LegionIO). Manage projects, tasks, sections, labels, and comments via the Todoist REST API.
 
 ## Installation
 
@@ -8,13 +8,21 @@ Todoist task management integration for [LegionIO](https://github.com/LegionIO/L
 gem install lex-todoist
 ```
 
-## Functions
+Or add to your Gemfile:
 
-- **Projects** - Project CRUD
-- **Tasks** - Task CRUD
-- **Sections** - Section management
-- **Labels** - Label management
-- **Comments** - Comment management
+```ruby
+gem 'lex-todoist'
+```
+
+## Runners
+
+| Runner | Operations |
+|--------|-----------|
+| Projects | CRUD |
+| Tasks | CRUD |
+| Sections | management |
+| Labels | management |
+| Comments | management |
 
 ## Requirements
 
