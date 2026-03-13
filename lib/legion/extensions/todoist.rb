@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'legion/extensions/todoist/version'
 
 module Legion

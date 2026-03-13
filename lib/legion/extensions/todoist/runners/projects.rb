@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 module Legion
   module Extensions
     module Todoist
       module Runners
         module Projects
           include Legion::Extensions::Helpers::Lex
+
           def list; end
 
           def create; end
