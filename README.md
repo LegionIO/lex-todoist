@@ -14,15 +14,19 @@ Or add to your Gemfile:
 gem 'lex-todoist'
 ```
 
+## Status
+
+This extension is partial. Runner modules and method signatures are defined but method bodies are empty stubs. HTTP client wiring is pending. No runtime gem dependency is declared yet.
+
 ## Runners
 
-| Runner | Operations |
-|--------|-----------|
-| Projects | CRUD |
-| Tasks | CRUD |
-| Sections | management |
-| Labels | management |
-| Comments | management |
+| Runner | Defined Methods |
+|--------|----------------|
+| Projects | `list`, `create`, `get`, `update`, `delete`, `collaborators` |
+| Tasks | `create`, `get_active`, `list_active`, `update`, `close`, `reopen`, `delete` |
+| Sections | `list`, `get_project_section`, `create`, `get`, `update`, `delete` |
+| Labels | (pending) |
+| Comments | (pending) |
 
 ## Requirements
 
