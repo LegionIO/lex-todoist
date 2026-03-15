@@ -9,7 +9,7 @@ module Legion
 
           def list; end
 
-          def get_project_section; end
+          def project_section; end
 
           def create; end
 
