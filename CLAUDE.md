@@ -8,25 +8,27 @@
 
 Legion Extension that connects LegionIO to the Todoist task management service. Provides runner modules for managing projects, tasks, sections, labels, and comments via the Todoist REST API.
 
+**Version**: 0.2.0
 **GitHub**: https://github.com/LegionIO/lex-todoist
 **License**: MIT
 
 ## Status
 
-Partial. Runner modules exist with method signatures, but all method bodies are empty stubs. The `Helpers::Client` module is an empty stub. No runtime gem dependency is declared in the gemspec — HTTP client wiring is pending.
+Implemented (v0.2.0). All five runner modules are fully implemented via `Helpers::Client` (Faraday to Todoist REST API v2). Standalone `Client` class included. `faraday >= 2.0` declared as a gemspec runtime dependency.
 
 ## Architecture
 
 ```
 Legion::Extensions::Todoist
 ├── Runners/
-│   ├── Projects           # list, create, get, update, delete, collaborators (empty bodies)
-│   ├── Tasks              # create, get_active, list_active, update, close, reopen, delete (empty bodies)
-│   ├── Sections           # list, get_project_section, create, get, update, delete (empty bodies)
-│   ├── Labels             # (empty bodies)
-│   └── Comments           # (empty bodies)
-└── Helpers/
-    └── Client             # empty stub module
+│   ├── Projects           # list, create, get, update, delete, collaborators (6 methods)
+│   ├── Tasks              # create, get_active, list_active, update, close, reopen, delete (7 methods)
+│   ├── Sections           # list, get_project_section, create, get, update, delete (5 methods)
+│   ├── Labels             # list, get, create, update, delete (5 methods)
+│   └── Comments           # list, get, create, delete (4 methods)
+├── Helpers/
+│   └── Client             # Faraday connection to Todoist REST API v2 (Bearer token auth)
+└── Client                 # Standalone client class (includes all runners)
 ```
 
 ## Key Files
@@ -34,14 +36,19 @@ Legion::Extensions::Todoist
 | Path | Purpose |
 |------|---------|
 | `lib/legion/extensions/todoist.rb` | Entry point, extension registration |
-| `lib/legion/extensions/todoist/runners/` | All Todoist resource runners (method bodies empty) |
-| `lib/legion/extensions/todoist/helpers/client.rb` | Client helper (empty stub module) |
+| `lib/legion/extensions/todoist/runners/` | All Todoist resource runners (fully implemented) |
+| `lib/legion/extensions/todoist/helpers/client.rb` | Faraday client to `https://api.todoist.com/rest/v2` with Bearer token auth |
+| `lib/legion/extensions/todoist/client.rb` | Standalone `Client` class for use outside Legion framework |
 
 ## Dependencies
 
-None declared (partial). Dev dependencies: `bundler`, `rake`, `rspec`, `rubocop`.
+| Gem | Purpose |
+|-----|---------|
+| `faraday` (>= 2.0) | HTTP client for Todoist REST API v2 |
 
 ## Development
+
+9 specs total.
 
 ```bash
 bundle install
