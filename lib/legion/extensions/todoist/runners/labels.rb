@@ -5,17 +5,36 @@ module Legion
     module Todoist
       module Runners
         module Labels
-          include Legion::Extensions::Helpers::Lex
+          def list_labels(**)
+            resp = connection(**).get('labels')
+            { labels: resp.body }
+          end
 
-          def list(**); end
+          def get_label(label_id:, **)
+            resp = connection(**).get("labels/#{label_id}")
+            { label: resp.body }
+          end
 
-          def create(**); end
+          def create_label(name:, color: nil, order: nil, **)
+            body = { name: name }
+            body[:color] = color if color
+            body[:order] = order if order
+            resp = connection(**).post('labels', body)
+            { label: resp.body }
+          end
 
-          def get(**); end
+          def update_label(label_id:, name: nil, color: nil, **)
+            body = {}
+            body[:name] = name if name
+            body[:color] = color if color
+            resp = connection(**).post("labels/#{label_id}", body)
+            { label: resp.body }
+          end
 
-          def update(**); end
-
-          def delete(**); end
+          def delete_label(label_id:, **)
+            connection(**).delete("labels/#{label_id}")
+            { deleted: true, label_id: label_id }
+          end
         end
       end
     end
