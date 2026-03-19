@@ -23,7 +23,7 @@ Legion::Extensions::Todoist
 ├── Runners/
 │   ├── Projects           # list, create, get, update, delete, collaborators (6 methods)
 │   ├── Tasks              # create, get_active, list_active, update, close, reopen, delete (7 methods)
-│   ├── Sections           # list, get_project_section, create, get, update, delete (5 methods)
+│   ├── Sections           # list, get_project_section, create, get, update, delete (6 methods)
 │   ├── Labels             # list, get, create, update, delete (5 methods)
 │   └── Comments           # list, get, create, delete (4 methods)
 ├── Helpers/
