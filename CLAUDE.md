@@ -8,13 +8,13 @@
 
 Legion Extension that connects LegionIO to the Todoist task management service. Provides runner modules for managing projects, tasks, sections, labels, and comments via the Todoist REST API.
 
-**Version**: 0.2.0
+**Version**: 0.2.1
 **GitHub**: https://github.com/LegionIO/lex-todoist
 **License**: MIT
 
 ## Status
 
-Implemented (v0.2.0). All five runner modules are fully implemented via `Helpers::Client` (Faraday to Todoist REST API v2). Standalone `Client` class included. `faraday >= 2.0` declared as a gemspec runtime dependency.
+Implemented (v0.2.1). All five runner modules are fully implemented via `Helpers::Client` (Faraday to Todoist REST API v2). Standalone `Client` class included. `faraday >= 2.0` declared as a gemspec runtime dependency.
 
 ## Architecture
 
